@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
   import "../app.css";
   import logo from "$lib/assets/logo.svg";
+  import type { LayoutData } from './$types';
+
+    export let data: LayoutData;
 </script>
 
 <nav
@@ -72,6 +75,18 @@ dark:bg-secondary-800"
         />
       </svg>
     </button>
+    <div role="menubar" class="
+    flex flex-col
+    gap-4 p-6
+    absolute right-0 left-0 top-16
+    bg-secondary-400
+    dark:bg-secondary-800
+    shadow-2xl
+    text-center text-lg">
+      {#each data.menuItems as item}
+        <a href="/">{item.title}</a>
+      {/each}
+    </div>
   </div>
 </nav>
 
