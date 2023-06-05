@@ -6,6 +6,9 @@
   export let data: LayoutData;
 
   let length = data.menuItems.length;
+
+  let expanded = false
+
 </script>
 
 <nav
@@ -50,7 +53,9 @@ dark:bg-secondary-800"
     lg:w-18"
       />
     </a>
-    <button
+    <button 
+      aria-label="Open menu"
+      on:click={()=> expanded = !expanded}
       id="menu"
       class="lg:hidden
     focus:outline-none
@@ -82,7 +87,10 @@ dark:bg-secondary-800"
     <div
       role="menubar"
       class="
-    flex flex-col
+      {expanded ? 'flex':'hidden'}
+      flex
+    aria-expanded:
+    flex-col
     gap-4 p-6
     absolute right-0 left-0 top-16
     bg-secondary-400
