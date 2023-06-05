@@ -4,6 +4,8 @@
   import type { LayoutData } from "./$types";
 
   export let data: LayoutData;
+
+  let length = data.menuItems.length;
 </script>
 
 <nav
@@ -86,10 +88,12 @@ dark:bg-secondary-800"
     bg-secondary-400
     dark:bg-secondary-800
     shadow-xl
-    text-center text-lg items-center"
+    text-center text-lg items-center
+    lg:flex lg:flex-row lg:static lg:shadow-none
+    lg:justify-between lg:w-full"
     >
-      {#each data.menuItems as item}
-        {#if item.title === "Sing Up"}
+      {#each data.menuItems as item, i}
+        {#if length - 1 == i}
           <a
             href="/"
             class="
@@ -106,6 +110,24 @@ dark:bg-secondary-800"
             transition-shadow
             bg-primary-400 dark:bg-primary-800
             "
+          >
+            {item.title}
+          </a>
+        {:else if length / 2 - 1 == i}
+          <a
+            href="/"
+            class="
+            py-1 px-6
+            focus:outline-none
+            focus-visible:ring-2
+            ring-gray-900
+            rounded-sm
+            ring-offset-4
+            ring-offset-secondary-400
+            dark:ring-offset-secondary-800
+            text-gray-900 hover:text-gray-600 transition-colors
+            dark:text-gray-100 dark:hover:text-gray-400
+            lg:mr-auto"
           >
             {item.title}
           </a>
