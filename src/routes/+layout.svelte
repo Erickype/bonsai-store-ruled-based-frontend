@@ -1,9 +1,9 @@
 <script lang="ts">
   import "../app.css";
   import logo from "$lib/assets/logo.svg";
-  import type { LayoutData } from './$types';
+  import type { LayoutData } from "./$types";
 
-    export let data: LayoutData;
+  export let data: LayoutData;
 </script>
 
 <nav
@@ -48,8 +48,9 @@ dark:bg-secondary-800"
     lg:w-18"
       />
     </a>
-    <button id="menu" 
-    class="lg:hidden
+    <button
+      id="menu"
+      class="lg:hidden
     focus:outline-none
     focus-visible:ring-2
     ring-gray-900
@@ -57,9 +58,10 @@ dark:bg-secondary-800"
     ring-offset-4
     ring-offset-secondary-400
     dark:ring-offset-secondary-800
-    hover:opacity-75
-    transition-opacity
-    ">
+    text-gray-900 hover:text-gray-600 transition-colors
+    dark:text-gray-100 dark:hover:text-gray-400
+    "
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -75,16 +77,56 @@ dark:bg-secondary-800"
         />
       </svg>
     </button>
-    <div role="menubar" class="
+    <div
+      role="menubar"
+      class="
     flex flex-col
     gap-4 p-6
     absolute right-0 left-0 top-16
     bg-secondary-400
     dark:bg-secondary-800
-    shadow-2xl
-    text-center text-lg">
+    shadow-xl
+    text-center text-lg items-center"
+    >
       {#each data.menuItems as item}
-        <a href="/">{item.title}</a>
+        {#if item.title === "Sing Up"}
+          <a
+            href="/"
+            class="
+            py-2 px-6
+            focus:outline-none
+            focus-visible:ring-2
+            ring-gray-900
+            rounded-sm
+            ring-offset-4
+            ring-offset-secondary-400
+            dark:ring-offset-secondary-800
+            shadow-xl
+            hover:shadow-none
+            transition-shadow
+            bg-primary-400 dark:bg-primary-800
+            "
+          >
+            {item.title}
+          </a>
+        {:else}
+          <a
+            href="/"
+            class="
+            py-1 px-6
+            focus:outline-none
+            focus-visible:ring-2
+            ring-gray-900
+            rounded-sm
+            ring-offset-4
+            ring-offset-secondary-400
+            dark:ring-offset-secondary-800
+            text-gray-900 hover:text-gray-600 transition-colors
+            dark:text-gray-100 dark:hover:text-gray-400"
+          >
+            {item.title}
+          </a>
+        {/if}
       {/each}
     </div>
   </div>

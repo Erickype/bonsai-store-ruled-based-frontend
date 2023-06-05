@@ -4,8 +4,9 @@ export const load = (() => {
     return {
         menuItems: [
             { title: 'Home' },
-            { title: 'Profile' },
-            { title: 'Notifications' }
+            { title: 'Contact' },
+            { title: 'Login' },
+            { title: 'Sing Up' }
         ]
     };
 }) satisfies LayoutLoad;
