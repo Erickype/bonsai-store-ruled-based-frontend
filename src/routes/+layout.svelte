@@ -80,6 +80,7 @@ dark:bg-secondary-800"
     aria-expanded:
     flex-col
     gap-4 p-6
+    z-40
     absolute right-0 left-0 top-16
     bg-secondary-400
     dark:bg-secondary-800
