@@ -7,8 +7,7 @@
 
   let length = data.menuItems.length;
 
-  let expanded = false
-
+  let expanded = false;
 </script>
 
 <nav
@@ -29,13 +28,7 @@ dark:bg-secondary-800"
       href="/"
       aria-label="Go to home page"
       class="
-    focus:outline-none
-    focus-visible:ring-2
-    ring-gray-900
-    rounded-sm
-    ring-offset-4
-    ring-offset-secondary-400
-    dark:ring-offset-secondary-800
+    focus-state
     lg:absolute
     lg:left-1/2
     lg:-translate-x-1/2
@@ -53,18 +46,12 @@ dark:bg-secondary-800"
     lg:w-18"
       />
     </a>
-    <button 
+    <button
       aria-label="Open menu"
-      on:click={()=> expanded = !expanded}
+      on:click={() => (expanded = !expanded)}
       id="menu"
       class="lg:hidden
-    focus:outline-none
-    focus-visible:ring-2
-    ring-gray-900
-    rounded-sm
-    ring-offset-4
-    ring-offset-secondary-400
-    dark:ring-offset-secondary-800
+    focus-state
     text-gray-900 hover:text-gray-600 transition-colors
     dark:text-gray-100 dark:hover:text-gray-400
     "
@@ -87,7 +74,7 @@ dark:bg-secondary-800"
     <div
       role="menubar"
       class="
-      {expanded ? 'flex':'hidden'}
+      {expanded ? 'flex' : 'hidden'}
       flex
     aria-expanded:
     flex-col
@@ -106,13 +93,7 @@ dark:bg-secondary-800"
             href="/"
             class="
             py-2 px-6
-            focus:outline-none
-            focus-visible:ring-2
-            ring-gray-900
-            rounded-sm
-            ring-offset-4
-            ring-offset-secondary-400
-            dark:ring-offset-secondary-800
+            focus-state
             shadow-xl
             hover:shadow-none
             transition-shadow
@@ -126,13 +107,7 @@ dark:bg-secondary-800"
             href="/"
             class="
             py-1 px-6
-            focus:outline-none
-            focus-visible:ring-2
-            ring-gray-900
-            rounded-sm
-            ring-offset-4
-            ring-offset-secondary-400
-            dark:ring-offset-secondary-800
+            focus-state
             text-gray-900 hover:text-gray-600 transition-colors
             dark:text-gray-100 dark:hover:text-gray-400
             lg:mr-auto"
@@ -144,13 +119,7 @@ dark:bg-secondary-800"
             href="/"
             class="
             py-1 px-6
-            focus:outline-none
-            focus-visible:ring-2
-            ring-gray-900
-            rounded-sm
-            ring-offset-4
-            ring-offset-secondary-400
-            dark:ring-offset-secondary-800
+            focus-state
             text-gray-900 hover:text-gray-600 transition-colors
             dark:text-gray-100 dark:hover:text-gray-400"
           >
