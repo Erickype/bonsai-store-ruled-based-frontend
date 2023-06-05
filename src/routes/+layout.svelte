@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../app.css";
   import logo from "$lib/assets/logo.svg";
-  import computer from "$lib/assets/computer.svg";
   import type { LayoutData } from "./$types";
 
   export let data: LayoutData;
@@ -26,7 +25,7 @@ dark:bg-secondary-800"
   justify-between"
   >
     <a
-      href="/"
+      href="/home"
       aria-label="Go to home page"
       class="
     focus-state
@@ -92,7 +91,7 @@ dark:bg-secondary-800"
       {#each data.menuItems as item, i}
         {#if length - 1 == i}
           <a
-            href="/"
+            href="/{item.link}"
             class="
             py-2 px-6
             focus-state
@@ -106,7 +105,7 @@ dark:bg-secondary-800"
           </a>
         {:else if length / 2 - 1 == i}
           <a
-            href="/"
+            href="/{item.link}"
             class="
             py-1 px-6
             focus-state
@@ -118,7 +117,7 @@ dark:bg-secondary-800"
           </a>
         {:else}
           <a
-            href="/"
+            href="/{item.link}"
             class="
             py-1 px-6
             focus-state
@@ -132,36 +131,5 @@ dark:bg-secondary-800"
     </div>
   </div>
 </nav>
-<header class="relative pt-16 md:pt-24 lg:pt-48">
-  <div
-    class="
-  absolute
-  inset-0
-  bottom-8 md:bottom-24 xl:bottom-32
-  -z-10
-  bg-gradient-to-b from-secondary-400 to-secondary-600
-  dark:from-secondary-800 dark:to-secondary-950"
-  />
-  <div
-    class="container
-  mx-auto
-  grid grid-rows-1
-  place-items-end
-  px-2"
-  >
-    <img
-      src={computer}
-      class="
-      row-start-1 row-end-2
-      col-start-1 col-end-2
-      mx-auto
-      w-40
-      sm:w-52
-      md:w-64
-      lg:w-72"
-      alt="Links"
-    />
-  </div>
-</header>
 
 <slot />
