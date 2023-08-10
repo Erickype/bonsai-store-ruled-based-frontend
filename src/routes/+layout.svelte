@@ -6,6 +6,7 @@
   import { AppBar } from "@skeletonlabs/skeleton";
   import { AppShell } from "@skeletonlabs/skeleton";
   import { Drawer, drawerStore } from "@skeletonlabs/skeleton";
+  import { LightSwitch } from "@skeletonlabs/skeleton";
 
   import { IconMenu } from "@tabler/icons-svelte";
   import { IconUser } from "@tabler/icons-svelte";
@@ -21,8 +22,8 @@
 
 <Drawer>
   <h2 class="p-4">Navigation</h2>
-	<hr />
-  <Navigation/>
+  <hr />
+  <Navigation />
 </Drawer>
 <AppShell slotSidebarLeft="bg-surface-500/5 w-0 lg:w-64">
   <svelte:fragment slot="header">
@@ -33,16 +34,18 @@
     >
       <svelte:fragment slot="lead">
         <button
-          class="lg:hidden btn btn-sm mr-4 hover:bg-slate-700"
-          on:click={drawerOpen}
+          type="button"
+          class="lg:hidden btn-icon"
+          on:click={drawerOpen}><IconMenu size={30} stroke={4} /></button
         >
-          <IconMenu size={30} stroke={4} />
-        </button>
       </svelte:fragment>
       <strong class="text-xl uppercase">{title}</strong>
-      <svelte:fragment slot="trail"
-        ><IconUser size={30} stroke={3} /></svelte:fragment
-      >
+      <svelte:fragment slot="trail">
+        <LightSwitch />
+        <button type="button" class="btn-icon variant-filled">
+          <IconUser size={30} stroke={3} />
+        </button>
+      </svelte:fragment>
     </AppBar>
   </svelte:fragment>
   <svelte:fragment slot="sidebarLeft">
