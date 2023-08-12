@@ -1,0 +1,1 @@
+export const domain = "https://staging-bonsai-store-rules-based-uoo2.encr.app"
