@@ -7,6 +7,6 @@ export interface Rule{
     Then: string[]
 }
 
-export interface Response{
+export interface GetResponse{
     Rules: Rule[]
 }
