@@ -9,7 +9,7 @@
 
 	const menuItems: MenuItem[] = [
 		{ name: "Homepage", href: "/" },
-		{ name: "Rules Editor", href: "/rules/editor" },
+		{ name: "Rules", href: "/rules" },
 		{ name: "About", href: "/about" },
 		{ name: "Blog", href: "/blog" },
 		{ name: "Contact", href: "/contact" },
