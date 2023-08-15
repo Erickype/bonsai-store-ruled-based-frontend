@@ -2,6 +2,7 @@
     import { Table, tableMapperValues } from "@skeletonlabs/skeleton";
     import type { TableSource } from "@skeletonlabs/skeleton";
     import type { PageServerData } from "./$types";
+    import { goto } from "$app/navigation";
 
     export let data: PageServerData;
 
@@ -18,6 +19,12 @@
             "then",
         ]),
     };
+
+    function redirectEditor(event: Event) {
+        const e = event as CustomEvent<String>;
+        const data = e.detail;
+        goto("rules/editor/" + data[0]);
+    }
 </script>
 
-<Table source={tableSimple} interactive={true} />
+<Table source={tableSimple} interactive={true} on:selected={redirectEditor} />
