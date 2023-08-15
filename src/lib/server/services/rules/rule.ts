@@ -1,10 +1,10 @@
 export interface Rule{
-    ID: number,
-    Name: string,
-    Desc: string,
-    Salience: number,
-    When: string,
-    Then: string[]
+    id: number,
+    name: string,
+    desc: string,
+    salience: number,
+    when: string,
+    then: string[]
 }
 
 export interface GetResponse{
