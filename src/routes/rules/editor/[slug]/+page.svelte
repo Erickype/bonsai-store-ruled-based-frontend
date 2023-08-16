@@ -13,7 +13,7 @@
             class="input"
             type="text"
             placeholder="Input"
-            disabled
+            readonly
             value={rule.id}
             name="id"
         />
