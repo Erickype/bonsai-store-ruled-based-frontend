@@ -12,3 +12,14 @@ export const GetById = async (id:string) => {
     const data = await res.json() as Rule
     return data
 }
+
+export const Update = async (rule:Rule) => {
+    const body = JSON.stringify(rule)
+    const res = await fetch(`${domain}/rule`,{
+        method: "PUT",
+        body: body
+    })
+    const data = await res.json() as Rule
+    console.log(data);
+    return data
+}
