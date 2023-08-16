@@ -12,6 +12,7 @@ const config = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/forms'),
     ...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
   ],
 };
