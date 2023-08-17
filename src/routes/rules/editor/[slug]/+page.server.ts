@@ -11,7 +11,6 @@ export const actions: Actions = {
     updateRule: async ({request}) => {
         const formData = await request.formData()
         const processedRule = await processUpdateRule(formData)
-        //const updatedRule = await Update(processedRule)
-        //console.log(updatedRule);        
+        await Update(processedRule)
     }
 };

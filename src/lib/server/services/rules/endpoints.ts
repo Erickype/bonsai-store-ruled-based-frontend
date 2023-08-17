@@ -15,11 +15,9 @@ export const GetById = async (id:string) => {
 
 export const Update = async (rule:Rule) => {
     const body = JSON.stringify(rule)
-    const res = await fetch(`${domain}/rule`,{
+    await fetch(`${domain}/rule`,{
         method: "PUT",
         body: body
     })
-    const data = await res.json() as Rule
-    console.log(data);
-    return data
+    return true
 }
