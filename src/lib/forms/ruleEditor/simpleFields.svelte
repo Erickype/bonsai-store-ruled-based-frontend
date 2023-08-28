@@ -5,7 +5,7 @@
     export let desc: string;
 </script>
 
-<div class="columns-3">
+<div class="columns-3 pb-4">
     <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
         <div class="input-group-shim">ID</div>
         <input
