@@ -3,6 +3,7 @@
     import type { PageServerData } from "./$types";
 
     import SimpleFields from "$lib/forms/ruleEditor/simpleFields.svelte";
+    import RuleFields from "$lib/forms/ruleEditor/ruleFields.svelte";
 
     export let data: PageServerData;
     let { rule } = data;
@@ -17,29 +18,11 @@
             salience={rule.salience}
             desc={rule.desc}
         />
+        <hr class="!border-t-2 mt-4 mb-2" />
+        <RuleFields when={rule.when} then={rule.then} />
 
-        <label class="label">
-            <span>When</span>
-            <input
-                class="input"
-                type="text"
-                placeholder="Input"
-                value={rule.when}
-                name="when"
-            />
-        </label>
-
-        <label class="label">
-            <span>Then</span>
-            <input
-                class="input"
-                type="text"
-                placeholder="Input"
-                value={rule.then}
-                name="then"
-            />
-        </label>
-
-        <button type="submit" class="btn variant-filled">Update</button>
+        <div class="pt-4 flex justify-center">
+            <button type="submit" class="btn variant-filled">Update</button>
+        </div>
     </form>
 </div>
