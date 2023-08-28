@@ -4,11 +4,12 @@
 
     export let data: PageServerData;
     const { rule } = data;
+    console.log(rule);
 </script>
 
 <form method="POST" action="?/updateRule" use:enhance>
-    <label class="label">
-        <span>ID</span>
+    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+        <div class="input-group-shim">ID</div>
         <input
             class="input"
             type="text"
@@ -17,10 +18,10 @@
             value={rule.id}
             name="id"
         />
-    </label>
+    </div>
 
-    <label class="label">
-        <span>Name</span>
+    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+        <div class="input-group-shim">Name</div>
         <input
             class="input"
             type="text"
@@ -28,10 +29,10 @@
             value={rule.name}
             name="name"
         />
-    </label>
+    </div>
 
-    <label class="label">
-        <span>Description</span>
+    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+        <div class="input-group-shim">Description</div>
         <input
             class="input"
             type="text"
@@ -39,10 +40,10 @@
             value={rule.desc}
             name="desc"
         />
-    </label>
+    </div>
 
-    <label class="label">
-        <span>Salience</span>
+    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+        <div class="input-group-shim">Salience</div>
         <input
             class="input"
             type="number"
@@ -51,7 +52,7 @@
             min="0"
             name="salience"
         />
-    </label>
+    </div>
 
     <label class="label">
         <span>When</span>
