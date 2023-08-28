@@ -15,8 +15,17 @@
 		{ name: "Contact", href: "/contact" },
 	];
 
-	$: classesActive = (href: string) =>
-		href === $page.url.pathname ? "!bg-primary-500" : "";
+	$: classesActive = (href: string) => {
+		const path = $page.url.pathname;
+
+		if (path.length == 1 && path === href) {
+			return "!bg-primary-500";
+		}
+		if (href !== "/" && path.includes(href)) {
+			return "!bg-primary-500";
+		}
+		return "";
+	};
 
 	function drawerClose(): void {
 		drawerStore.close();
