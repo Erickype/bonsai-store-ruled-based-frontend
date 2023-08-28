@@ -2,79 +2,44 @@
     import { enhance } from "$app/forms";
     import type { PageServerData } from "./$types";
 
+    import SimpleFields from "$lib/forms/ruleEditor/simpleFields.svelte";
+
     export let data: PageServerData;
-    const { rule } = data;
+    let { rule } = data;
     console.log(rule);
 </script>
 
-<form method="POST" action="?/updateRule" use:enhance>
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">ID</div>
-        <input
-            class="input"
-            type="text"
-            placeholder="Input"
-            readonly
-            value={rule.id}
-            name="id"
+<div class="card p-4">
+    <form method="POST" action="?/updateRule" use:enhance>
+        <SimpleFields
+            id={rule.id}
+            name={rule.name}
+            salience={rule.salience}
+            desc={rule.desc}
         />
-    </div>
 
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">Name</div>
-        <input
-            class="input"
-            type="text"
-            placeholder="Input"
-            value={rule.name}
-            name="name"
-        />
-    </div>
+        <label class="label">
+            <span>When</span>
+            <input
+                class="input"
+                type="text"
+                placeholder="Input"
+                value={rule.when}
+                name="when"
+            />
+        </label>
 
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">Description</div>
-        <input
-            class="input"
-            type="text"
-            placeholder="Input"
-            value={rule.desc}
-            name="desc"
-        />
-    </div>
+        <label class="label">
+            <span>Then</span>
+            <input
+                class="input"
+                type="text"
+                placeholder="Input"
+                value={rule.then}
+                name="then"
+            />
+        </label>
 
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">Salience</div>
-        <input
-            class="input"
-            type="number"
-            placeholder="Input"
-            value={rule.salience}
-            min="0"
-            name="salience"
-        />
-    </div>
-
-    <label class="label">
-        <span>When</span>
-        <input
-            class="input"
-            type="text"
-            placeholder="Input"
-            value={rule.when}
-            name="when"
-        />
-    </label>
-
-    <label class="label">
-        <span>Then</span>
-        <input
-            class="input"
-            type="text"
-            placeholder="Input"
-            value={rule.then}
-            name="then"
-        />
-    </label>
-
-    <button type="submit" class="btn variant-filled">Update</button>
-</form>
+        <button type="submit" class="btn variant-filled">Update</button>
+    </form>
+</div>
