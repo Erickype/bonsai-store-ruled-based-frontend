@@ -10,7 +10,7 @@
     console.log(rule);
 </script>
 
-<div class="card p-4">
+<div class="card p-4 h-full">
     <form method="POST" action="?/updateRule" use:enhance>
         <SimpleFields
             id={rule.id}

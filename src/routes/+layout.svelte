@@ -12,6 +12,7 @@
   import { IconUser } from "@tabler/icons-svelte";
 
   import Navigation from "$lib/navigation/navigation.svelte";
+  import { page } from "$app/stores";
 
   let title = "Bonsai Store";
 
@@ -33,10 +34,8 @@
       slotTrail="place-content-end"
     >
       <svelte:fragment slot="lead">
-        <button
-          type="button"
-          class="lg:hidden btn-icon"
-          on:click={drawerOpen}><IconMenu size={30} stroke={4} /></button
+        <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
+          ><IconMenu size={30} stroke={4} /></button
         >
       </svelte:fragment>
       <strong class="text-xl uppercase">{title}</strong>
@@ -56,7 +55,13 @@
 
   <slot />
 
-  <svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
+  <svelte:fragment slot="pageFooter">
+    <div class="flex justify-center p-1">
+      <h6 class="h6">
+        {$page.url.pathname.toUpperCase()}
+      </h6>
+    </div>
+  </svelte:fragment>
 </AppShell>
 
 <slot />
