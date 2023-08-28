@@ -9,14 +9,12 @@
     const { rules } = data;
 
     const tableSimple: TableSource = {
-        head: ["ID", "Name", "Description", "Salience", "When", "Then"],
+        head: ["ID", "Name", "Description", "Salience"],
         body: tableMapperValues(rules, [
             "id",
             "name",
             "desc",
-            "salience",
-            "when",
-            "then",
+            "salience"
         ]),
     };
 
