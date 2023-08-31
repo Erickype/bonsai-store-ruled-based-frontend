@@ -7,7 +7,6 @@
 
     export let data: PageServerData;
     let { rule } = data;
-    console.log(rule);
 </script>
 
 <div class="card p-4 h-full">
