@@ -10,7 +10,7 @@
 </script>
 
 <div class="card p-4 h-full">
-    <form method="POST" action="?/updateRule" use:enhance>
+    <form class="h-full flex flex-col" method="POST" action="?/updateRule" use:enhance>
         <SimpleFields
             id={rule.id}
             name={rule.name}
