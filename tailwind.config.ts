@@ -6,6 +6,8 @@ import forms from '@tailwindcss/forms';
 // 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
 
+import { myCustomTheme } from './my-custom-theme'
+
 const config = {
 	// 2. Opt for dark mode to be handled via the class method
 	darkMode: 'class',
@@ -22,7 +24,13 @@ const config = {
 	},
 	plugins: [
 		// 4. Append the Skeleton plugin (after other plugins)
-		skeleton,
+		skeleton({
+            themes: {
+                custom: [
+                    myCustomTheme
+                ]
+            }
+        }),
         forms
 	]
 } satisfies Config;
