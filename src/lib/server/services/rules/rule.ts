@@ -4,7 +4,21 @@ export interface Rule {
     desc: string;
     salience: number;
     when: { [key: string]: { [key: string]: PairExpression[] }[] };
-    then: string[];
+    then: Then[];
+}
+
+export interface Then {
+    set?: Set[];
+    call?: any[];
+}
+
+export interface Set {
+    obj?: string;
+    plus?: PairExpression[];
+    minus?: PairExpression[];
+    div?: PairExpression[];
+    mul?: PairExpression[];
+    mod?: PairExpression[];
 }
 
 export interface PairExpression {
