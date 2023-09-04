@@ -10,11 +10,18 @@
         "lte",
         "bor",
         "band",
+        "plus",
+        "div",
+        "minus",
+        "mod",
+        "mul",
     ];
 
     export let selected: string;
 
-    $:{selected}
+    $: {
+        selected;
+    }
 
     function UpdateSelected(e: Event) {
         const newValue = (e.target as HTMLSelectElement).value;
