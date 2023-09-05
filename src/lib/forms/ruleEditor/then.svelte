@@ -31,7 +31,7 @@
 </script>
 
 <span>Then</span>
-<div class="card">
+<div class="flex-1 card">
     <section class="p-4">
         <h4 class="h4">Set</h4>
         {#each then as action}

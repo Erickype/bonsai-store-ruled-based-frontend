@@ -6,7 +6,7 @@
 </script>
 
 <span>When</span>
-<div class="card">
+<div class="card flex-1">
     {#each Object.entries(when) as [condition, compoundConditions]}
         <section class="p-4">
             <ConditionsSelect selected={condition} />
