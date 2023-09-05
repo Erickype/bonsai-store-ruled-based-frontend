@@ -38,7 +38,7 @@
           ><IconMenu size={30} stroke={4} /></button
         >
       </svelte:fragment>
-      <h1 class="h4 lg:h3">{title}</h1>
+      <h1 class="h4 lg:h3 sm:h6">{title}</h1>
       <svelte:fragment slot="trail">
         <LightSwitch />
         <button type="button" class="btn-icon variant-filled">
