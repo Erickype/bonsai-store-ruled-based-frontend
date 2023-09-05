@@ -5,6 +5,7 @@
         Then,
     } from "$lib/server/services/rules/rule";
     import ConditionsSelect from "./conditionsSelect.svelte";
+    import PairExpressionSelector from "./pairExpressionSelector.svelte";
 
     export let then: Then[];
 
@@ -52,23 +53,9 @@
                     </section>
                     <section class="p-4">
                         <div class="grid gap-4 grid-cols-2 grid-rows-1 pb-2">
-                            {#each getSelectedObj(action.set?.at(1)) as expression}
-                                {#if expression.const == undefined}
-                                    <input
-                                        class="input"
-                                        type="text"
-                                        value={expression.obj}
-                                        name="obj"
-                                    />
-                                {:else}
-                                    <input
-                                        class="input"
-                                        type="text"
-                                        value={expression.const}
-                                        name="const"
-                                    />
-                                {/if}
-                            {/each}
+                            <PairExpressionSelector
+                                expressions={getSelectedObj(action.set?.at(1))}
+                            />
                         </div>
                     </section>
                 </div>
