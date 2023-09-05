@@ -5,50 +5,56 @@
     export let desc: string;
 </script>
 
-<div class="columns-3 pb-4">
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">ID</div>
-        <input
-            class="input w-min"
-            type="text"
-            placeholder="Input"
-            readonly
-            value={id}
-            name="id"
-        />
+<div class="flex space-x-2">
+    <div class="flex-none w-14 h-14">
+        <label class="label">
+            <span>ID</span>
+            <input
+                class="input"
+                type="text"
+                placeholder="Input"
+                readonly
+                value={id}
+                name="id"
+            />
+        </label>
     </div>
 
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">Name</div>
-        <input
-            class="input"
-            type="text"
-            placeholder="Input"
-            value={name}
-            name="name"
-        />
+    <div class="flex-auto">
+        <label class="label">
+            <span>Name</span>
+            <input
+                class="input"
+                type="text"
+                placeholder="Input"
+                value={name}
+                name="name"
+            />
+        </label>
     </div>
 
-    <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-        <div class="input-group-shim">Salience</div>
-        <input
-            class="input"
-            type="number"
-            placeholder="Input"
-            value={salience}
-            min="0"
-            name="salience"
-        />
+    <div class="flex-auto">
+        <label class="label">
+            <span>Salience</span>
+            <input
+                class="input"
+                type="number"
+                placeholder="Input"
+                value={salience}
+                min="0"
+                name="salience"
+            />
+        </label>
     </div>
 </div>
 
-<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-    <div class="input-group-shim">Description</div>
-    <input
-        class="input"
-        type="text"
+<label class="label">
+    <span>Description</span>
+    <textarea
+        class="textarea"
+        rows="2"
         placeholder="Input"
         value={desc}
         name="desc"
     />
-</div>
+</label>
