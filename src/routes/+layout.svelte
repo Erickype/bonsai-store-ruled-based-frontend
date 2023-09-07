@@ -11,6 +11,7 @@
   import { IconUser } from "@tabler/icons-svelte";
 
   import Navigation from "$lib/navigation/navigation.svelte";
+  import TopNavigation from "$lib/navigation/topNav.svelte";
   import { page } from "$app/stores";
   import Logo from "$lib/assets/logo.svg?raw";
 
@@ -37,10 +38,10 @@
         <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
           ><IconMenu size={30} stroke={4} /></button
         >
-        <span class="w-14 h-14">{@html Logo}</span>
+        <span class="hidden lg:block w-14 h-14">{@html Logo}</span>
       </svelte:fragment>
 
-      <h1 class="h4 lg:h3 sm:h6">{title}</h1>
+      <TopNavigation />
 
       <svelte:fragment slot="trail">
         <button type="button" class="btn-icon variant-filled">
@@ -48,12 +49,6 @@
         </button>
       </svelte:fragment>
     </AppBar>
-  </svelte:fragment>
-
-  <svelte:fragment slot="sidebarLeft">
-    <div id="sidebar-left" class="hidden lg:block">
-      <Navigation />
-    </div>
   </svelte:fragment>
 
   <slot />

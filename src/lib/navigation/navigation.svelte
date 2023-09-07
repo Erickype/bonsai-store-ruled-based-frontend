@@ -2,11 +2,6 @@
 	import { page } from "$app/stores";
 	import { drawerStore } from "@skeletonlabs/skeleton";
 
-	interface MenuItem {
-		name: string;
-		href: string;
-	}
-
 	const menuItems: MenuItem[] = [
 		{ name: "Homepage", href: "/" },
 		{ name: "Rules", href: "/rules" },
