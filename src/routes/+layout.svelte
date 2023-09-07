@@ -6,13 +6,13 @@
   import { AppBar } from "@skeletonlabs/skeleton";
   import { AppShell } from "@skeletonlabs/skeleton";
   import { Drawer, drawerStore } from "@skeletonlabs/skeleton";
-  import { LightSwitch } from "@skeletonlabs/skeleton";
 
   import { IconMenu } from "@tabler/icons-svelte";
   import { IconUser } from "@tabler/icons-svelte";
 
   import Navigation from "$lib/navigation/navigation.svelte";
   import { page } from "$app/stores";
+  import Logo from "$lib/assets/logo.svg?raw";
 
   let title = "Bonsai Store";
 
@@ -37,10 +37,10 @@
         <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
           ><IconMenu size={30} stroke={4} /></button
         >
+        <span class="w-14 h-14">{@html Logo}</span>
       </svelte:fragment>
       <h1 class="h4 lg:h3 sm:h6">{title}</h1>
       <svelte:fragment slot="trail">
-        <LightSwitch />
         <button type="button" class="btn-icon variant-filled">
           <IconUser size={30} stroke={3} />
         </button>
