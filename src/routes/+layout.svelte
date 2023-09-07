@@ -39,7 +39,9 @@
         >
         <span class="w-14 h-14">{@html Logo}</span>
       </svelte:fragment>
+
       <h1 class="h4 lg:h3 sm:h6">{title}</h1>
+
       <svelte:fragment slot="trail">
         <button type="button" class="btn-icon variant-filled">
           <IconUser size={30} stroke={3} />
@@ -47,6 +49,7 @@
       </svelte:fragment>
     </AppBar>
   </svelte:fragment>
+
   <svelte:fragment slot="sidebarLeft">
     <div id="sidebar-left" class="hidden lg:block">
       <Navigation />
