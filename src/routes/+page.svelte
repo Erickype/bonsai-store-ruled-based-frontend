@@ -7,9 +7,9 @@
     import Hero3 from "$lib/assets/hero/hero3.jpg";
     import Hero4 from "$lib/assets/hero/hero4.jpg";
     import Hero5 from "$lib/assets/hero/hero5.jpg";
-5
+
     let elemCarousel: HTMLDivElement;
-    const unsplashIds = [Hero1, Hero2, Hero3, Hero4, Hero5];
+    const images = [Hero1, Hero2, Hero3, Hero4, Hero5];
 
     function carouselLeft(): void {
         const x =
@@ -29,13 +29,11 @@
     }
 </script>
 
-<div
-    class="card grid grid-cols-[auto_1fr_auto] gap-4 items-center variant-ghost-primary"
->
+<div class="card flex variant-soft-primary relative">
     <!-- Button: Left -->
     <button
         type="button"
-        class="btn-icon variant-filled"
+        class="btn-icon variant-filled-tertiary absolute left-0 transform translate-x-1/2 top-1/2 -translate-y-1/2"
         on:click={carouselLeft}
     >
         <IconArrowLeft />
@@ -43,13 +41,13 @@
     <!-- Full Images -->
     <div
         bind:this={elemCarousel}
-        class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto lg:w-modal-wide mr-auto ml-auto"
+        class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto lg:w-modal-wide mx-auto ml-auto"
     >
-        {#each unsplashIds as unsplashId}
+        {#each images as image}
             <img
                 class="snap-center w-[100%] rounded-container-token"
-                src={unsplashId}
-                alt={unsplashId}
+                src={image}
+                alt={image}
                 loading="lazy"
             />
         {/each}
@@ -57,7 +55,7 @@
     <!-- Button: Right -->
     <button
         type="button"
-        class="btn-icon variant-filled"
+        class="btn-icon variant-filled-tertiary absolute right-0 transform -translate-x-1/2 top-1/2 -translate-y-1/2"
         on:click={carouselRight}
     >
         <IconArrowRight />
