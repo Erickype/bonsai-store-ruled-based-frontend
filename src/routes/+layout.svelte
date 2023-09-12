@@ -13,9 +13,7 @@
   import Navigation from "$lib/navigation/navigation.svelte";
   import TopNavigation from "$lib/navigation/topNav.svelte";
   import { page } from "$app/stores";
-  import Logo from "$lib/assets/logo.svg?raw";
-
-  let title = "Bonsai Store";
+  import Logo from "$lib/components/logo.svelte";
 
   function drawerOpen(): void {
     drawerStore.open({});
@@ -38,7 +36,7 @@
         <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
           ><IconMenu size={30} stroke={4} /></button
         >
-        <span class="hidden lg:block w-14 h-14">{@html Logo}</span>
+        <Logo/>
       </svelte:fragment>
 
       <TopNavigation />
