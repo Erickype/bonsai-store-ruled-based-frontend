@@ -36,14 +36,18 @@
         <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
           ><IconMenu size={30} stroke={4} /></button
         >
-        <Logo/>
+        <Logo />
       </svelte:fragment>
 
       <TopNavigation />
 
       <svelte:fragment slot="trail">
-        <button type="button" class="btn-icon variant-filled">
-          <IconUser size={30} stroke={3} />
+        <a class="hover:text-surface-300" href="/auth/login">Login</a>
+        <button
+          type="button"
+          class="btn bg-gradient-to-br variant-gradient-tertiary-primary"
+        >
+          <a class="hover:text-surface-300" href="/auth/signup">Sign Up</a>
         </button>
       </svelte:fragment>
     </AppBar>
