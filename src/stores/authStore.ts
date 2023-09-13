@@ -4,7 +4,7 @@ import { writable } from "svelte/store";
 
 export const authStore = writable({
     isLoading: true,
-    currentUser: null
+    currentUser: auth.currentUser
 })
 
 export const authHandler = {
@@ -19,5 +19,8 @@ export const authHandler = {
     },
     updateEmail: async(email: string)=>{
         await updateEmail(auth.currentUser!, email)
+    },
+    updatePassword: async(password: string)=>{
+        await updatePassword(auth.currentUser!, password)
     }
 }

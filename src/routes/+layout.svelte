@@ -8,12 +8,24 @@
   import { Drawer, drawerStore } from "@skeletonlabs/skeleton";
 
   import { IconMenu } from "@tabler/icons-svelte";
-  import { IconUser } from "@tabler/icons-svelte";
 
   import Navigation from "$lib/navigation/navigation.svelte";
   import TopNavigation from "$lib/navigation/topNav.svelte";
   import { page } from "$app/stores";
   import Logo from "$lib/components/logo.svelte";
+
+  import { onMount } from "svelte";
+  import { auth } from "$lib/firebase/firebase.client";
+  import { authStore } from "../stores/authStore";
+
+  onMount(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log(user);
+      authStore.update((curr) => {  
+        return { ...curr, isLoading: false, currentUser: user };
+      });
+    });
+  });
 
   function drawerOpen(): void {
     drawerStore.open({});
@@ -43,12 +55,12 @@
 
       <svelte:fragment slot="trail">
         <a class="hover:text-surface-300" href="/auth/login">Login</a>
-        <button
-          type="button"
+        <a
+          href="/auth/signup"
           class="btn bg-gradient-to-br variant-gradient-tertiary-primary"
         >
-          <a class="hover:text-surface-300" href="/auth/signup">Sign Up</a>
-        </button>
+          Sign Up
+        </a>
       </svelte:fragment>
     </AppBar>
   </svelte:fragment>
