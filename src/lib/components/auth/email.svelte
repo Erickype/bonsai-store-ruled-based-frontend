@@ -49,10 +49,24 @@
         <div class="text-center mx-auto">
             {#if register}
                 <p>Already have an account?</p>
-                <p>Log In</p>
+                <span
+                    class="chip variant-soft hover:variant-filled"
+                    on:click={()=>{
+                        register = !register
+                    }}
+                 on:keydown={()=>{}}>
+                    <span>Log In</span>
+                </span>
             {:else}
                 <p>Don't have an account?</p>
-                <p>Sign Up</p>
+                <span
+                    class="chip variant-soft hover:variant-filled"
+                    on:click={()=>{
+                        register = !register
+                    }}
+                 on:keydown={()=>{}}>
+                    <span>Sign Up</span>
+                </span>
             {/if}
         </div>
 
