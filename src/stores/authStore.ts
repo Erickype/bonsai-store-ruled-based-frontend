@@ -1,26 +1,33 @@
-import { auth } from "$lib/firebase/firebase.client";
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signOut, updateEmail, updatePassword } from "firebase/auth";
-import { writable } from "svelte/store";
+import {
+    createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
+    signOut, updateEmail,
+    updatePassword
+} from "firebase/auth";
+import { writable } from 'svelte/store';
+import { firebaseAuth } from "$lib/firebase/firebase.client";
 
-export const authStore = writable({
+const authUserStore = writable({
     isLoading: true,
-    currentUser: auth.currentUser
-})
+    currentUser: null
+});
+
+export { authUserStore };
 
 export const authHandler = {
-    signUp: async (email: string, password :string) => {
-        await createUserWithEmailAndPassword(auth, email, password)
+    signUp: async (email: string, password: string) => {
+        await createUserWithEmailAndPassword(firebaseAuth, email, password)
     },
-    logOut: async ()=>{
-        await signOut(auth)
+    logOut: async () => {
+        await signOut(firebaseAuth)
     },
-    resetPassword: async(email: string)=>{
-        await sendPasswordResetEmail(auth, email)
+    resetPassword: async (email: string) => {
+        await sendPasswordResetEmail(firebaseAuth, email)
     },
-    updateEmail: async(email: string)=>{
-        await updateEmail(auth.currentUser!, email)
+    updateEmail: async (email: string) => {
+        await updateEmail(firebaseAuth.currentUser!, email)
     },
-    updatePassword: async(password: string)=>{
-        await updatePassword(auth.currentUser!, password)
+    updatePassword: async (password: string) => {
+        await updatePassword(firebaseAuth.currentUser!, password)
     }
 }
