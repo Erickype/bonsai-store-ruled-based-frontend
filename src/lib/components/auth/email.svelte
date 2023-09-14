@@ -1,0 +1,54 @@
+<script lang="ts">
+    let register = true
+    let email: string
+    let password: string
+    let confirmPassword: string
+</script>
+
+<form
+    class="flex content-center items-center h-full p-10">
+    <div
+        class="card h-2/3 lg:h-full p-10 mx-auto flex flex-col item place-content-between gap-4 lg:w-1/3
+        variant-filled-tertiary"
+    >
+        <h2 class="h2 text-center">Sign Up</h2>
+        <label class="label">
+            <span>Email</span>
+            <input
+                class="input"
+                type="email"
+                placeholder="Email"
+                required
+                bind:value={email}
+            />
+        </label>
+
+        <label class="label">
+            <span>Password</span>
+            <input
+                class="input"
+                type="password"
+                placeholder="Password"
+                required
+                bind:value={password}
+            />
+        </label>
+
+        {#if register}
+        <label class="label">
+            <span>Confirm password</span>
+            <input
+                class="input"
+                type="password"
+                placeholder="Confirm password"
+                required
+                bind:value={confirmPassword}
+            />
+        </label>
+        {/if}
+
+        <button type="submit" class="btn variant-filled-success mx-auto"
+            >Sign Up</button
+        >
+    </div>
+</form>
