@@ -15,13 +15,13 @@
   import Logo from "$lib/components/logo.svelte";
 
   import { onMount } from "svelte";
-  import { auth } from "$lib/firebase/firebase.client";
-  import { authStore } from "../stores/authStore";
+  import { firebaseAuth } from "$lib/firebase/firebase.client";
+  import { authUserStore } from "../stores/authStore";
 
   onMount(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = firebaseAuth.onAuthStateChanged((user) => {
       console.log(user);
-      authStore.update((curr) => {  
+      authUserStore.update((curr: any) => {  
         return { ...curr, isLoading: false, currentUser: user };
       });
     });
@@ -54,12 +54,11 @@
       <TopNavigation />
 
       <svelte:fragment slot="trail">
-        <a class="hover:text-surface-300" href="/auth/login">Login</a>
         <a
-          href="/auth/signup"
+          href="/auth"
           class="btn bg-gradient-to-br variant-gradient-tertiary-primary"
         >
-          Sign Up
+          Login
         </a>
       </svelte:fragment>
     </AppBar>
