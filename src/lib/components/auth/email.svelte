@@ -5,17 +5,23 @@
     let confirmPassword: string;
 </script>
 
-<form class="flex content-center items-center h-full p-10">
+<form
+    class="flex content-center items-center h-full p-10"
+    method="POST"
+    action="?/submit"
+>
     <div
         class="card h-min p-10 mx-auto flex flex-col item place-content-between gap-4 lg:w-1/3
         variant-filled-tertiary"
     >
         <h2 class="h2 text-center">{register ? "Sign Up" : "Log In"}</h2>
+        <input type="text" name="register" bind:value={register} hidden />
         <label class="label">
             <span>Email</span>
             <input
                 class="input text-primary-50"
                 type="email"
+                name="email"
                 placeholder="Email"
                 required
                 bind:value={email}
@@ -27,6 +33,7 @@
             <input
                 class="input text-primary-50"
                 type="password"
+                name="password"
                 placeholder="Password"
                 required
                 bind:value={password}
@@ -39,6 +46,7 @@
                 <input
                     class="input text-primary-50"
                     type="password"
+                    name="confirmPassword"
                     placeholder="Confirm password"
                     required
                     bind:value={confirmPassword}
