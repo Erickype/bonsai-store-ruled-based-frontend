@@ -18,7 +18,7 @@
     hover="hover:variant-soft-primary"
     flex="flex-1 lg:flex-none"
     rounded="rounded-lg"
-    class="bg-surface-100-800-token w-full hidden lg:block md:block"
+    class="bg-surface-100-800-token w-full hidden lg:block"
 >
     {#each menuItems as menu}
         <TabAnchor href={menu.href} selected={$page.url.pathname === menu.href}>

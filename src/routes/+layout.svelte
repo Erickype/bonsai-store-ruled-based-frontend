@@ -21,7 +21,7 @@
   onMount(() => {
     const unsubscribe = firebaseAuth.onAuthStateChanged((user) => {
       console.log(user);
-      authUserStore.update((curr: any) => {  
+      authUserStore.update((curr: any) => {
         return { ...curr, isLoading: false, currentUser: user };
       });
     });
@@ -43,12 +43,15 @@
       gridColumns="grid-cols-3"
       slotDefault="place-self-center"
       slotTrail="place-content-end"
+      gap="sm:gap-0"
     >
       <svelte:fragment slot="lead">
-        <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
-          ><IconMenu size={30} stroke={4} /></button
-        >
-        <Logo />
+        <div class="flex flex-row flex-1">
+          <button type="button" class="lg:hidden btn-icon" on:click={drawerOpen}
+            ><IconMenu size={30} stroke={4} /></button
+          >
+          <Logo />
+        </div>
       </svelte:fragment>
 
       <TopNavigation />

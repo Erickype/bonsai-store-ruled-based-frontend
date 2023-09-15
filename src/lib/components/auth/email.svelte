@@ -14,7 +14,7 @@
         <label class="label">
             <span>Email</span>
             <input
-                class="input"
+                class="input text-primary-50"
                 type="email"
                 placeholder="Email"
                 required
@@ -25,7 +25,7 @@
         <label class="label">
             <span>Password</span>
             <input
-                class="input"
+                class="input text-primary-50"
                 type="password"
                 placeholder="Password"
                 required
@@ -37,7 +37,7 @@
             <label class="label">
                 <span>Confirm password</span>
                 <input
-                    class="input"
+                    class="input text-primary-50"
                     type="password"
                     placeholder="Confirm password"
                     required
@@ -46,32 +46,25 @@
             </label>
         {/if}
 
-        <div class="text-center mx-auto">
-            {#if register}
-                <p>Already have an account?</p>
-                <span
-                    class="chip variant-soft hover:variant-filled"
-                    on:click={()=>{
-                        register = !register
-                    }}
-                 on:keydown={()=>{}}>
-                    <span>Log In</span>
-                </span>
-            {:else}
-                <p>Don't have an account?</p>
-                <span
-                    class="chip variant-soft hover:variant-filled"
-                    on:click={()=>{
-                        register = !register
-                    }}
-                 on:keydown={()=>{}}>
-                    <span>Sign Up</span>
-                </span>
-            {/if}
-        </div>
-
         <button type="submit" class="btn variant-filled-success mx-auto"
             >Submit</button
         >
+
+        <div class="text-center mx-auto">
+            {#if register}
+                <p>Already have an account?</p>
+            {:else}
+                <p>Don't have an account?</p>
+            {/if}
+            <span
+                class="chip variant-soft hover:variant-filled"
+                on:click={() => {
+                    register = !register;
+                }}
+                on:keydown={() => {}}
+            >
+                <span>{register ? "Sign Up" : "Log In"}</span>
+            </span>
+        </div>
     </div>
 </form>
