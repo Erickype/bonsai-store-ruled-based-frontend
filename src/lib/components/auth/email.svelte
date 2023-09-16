@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { enhance } from "$app/forms";
+
     let register = true;
     let email: string;
     let password: string;
@@ -9,6 +11,7 @@
     class="flex content-center items-center h-full p-10"
     method="POST"
     action="?/submit"
+    use:enhance
 >
     <div
         class="card h-min p-10 mx-auto flex flex-col item place-content-between gap-4 lg:w-1/3
@@ -71,7 +74,7 @@
                 }}
                 on:keydown={() => {}}
             >
-                <span>{register ? "Sign Up" : "Log In"}</span>
+                <span>{!register ? "Sign Up" : "Log In"}</span>
             </span>
         </div>
     </div>
