@@ -1,6 +1,7 @@
 import {
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
+    signInWithEmailAndPassword,
     signOut, updateEmail,
     updatePassword
 } from "firebase/auth";
@@ -15,6 +16,9 @@ const authUserStore = writable({
 export { authUserStore };
 
 export const authHandler = {
+    login: async (email: string, password: string) => {
+        await signInWithEmailAndPassword(firebaseAuth, email, password)
+    },
     signUp: async (email: string, password: string) => {
         await createUserWithEmailAndPassword(firebaseAuth, email, password)
     },
