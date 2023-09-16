@@ -1,16 +1,33 @@
-import type { Actions } from "@sveltejs/kit";
+import { fail, type Actions } from "@sveltejs/kit";
+import { authHandler } from "../../stores/authStore";
+import type { AuthError } from "firebase/auth";
 
-export const actions: Actions = {
+export const actions = {
     submit: async ({ request }) => {
         const data = await request.formData()
 
-        const register = data.get("register")
+        const register: boolean = JSON.parse(data.get("register")!.toString())
         const email = data.get("email")!.toString()
         const password = data.get("password")!.toString()
-        const confirmPassword = data.get("confirmPassword")!.toString()
+        const confirmPassword = data.get("confirmPassword")?.toString()
 
-        console.log(register, email, password, confirmPassword);
-
-        return { success: true }
+        if (register) {
+            if (password !== confirmPassword) {
+                return fail(400, { password, confirmPassword, differentPassword: true })
+            }
+            try {
+                await authHandler.signUp(email, password)
+            } catch (err) {
+                const authError: AuthError = err as AuthError
+                return fail(400, { authErrorCode: authError.code, firebaseError: true })
+            }
+        } else {
+            try {
+                await authHandler.login(email, password)
+            } catch (err) {
+                const authError: AuthError = err as AuthError
+                return fail(400, { authErrorCode: authError.code, firebaseError: true })
+            }
+        }
     }
-};
+} satisfies Actions;
