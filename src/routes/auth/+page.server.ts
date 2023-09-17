@@ -19,15 +19,25 @@ export const actions = {
                 await authHandler.signUp(email, password)
             } catch (err) {
                 const authError: AuthError = err as AuthError
-                return fail(400, { authErrorCode: authError.code, firebaseError: true })
+                return fail(400, { authErrorCode: getFormattedErrorCode(authError.code), firebaseError: true })
             }
         } else {
             try {
                 await authHandler.login(email, password)
             } catch (err) {
                 const authError: AuthError = err as AuthError
-                return fail(400, { authErrorCode: authError.code, firebaseError: true })
+                return fail(400, { authErrorCode: getFormattedErrorCode(authError.code), firebaseError: true })
             }
         }
     }
 } satisfies Actions;
+
+function getFormattedErrorCode(code: string) {
+    code = code.replace("auth/", "");
+
+    code = code.replace(/-/g, " ");
+
+    code = code.charAt(0).toUpperCase() + code.slice(1);
+
+    return code;
+}
