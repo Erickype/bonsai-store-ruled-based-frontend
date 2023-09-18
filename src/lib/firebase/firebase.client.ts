@@ -7,7 +7,7 @@ import {
   PUBLIC_APPID
 } from "$env/static/public"
 
-import { getApps, initializeApp } from "firebase/app";
+import { deleteApp, getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth} from "firebase/auth";
 
 const firebaseConfig = {
@@ -24,6 +24,10 @@ let firebaseApp;
  
 if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig);
+}else{
+  firebaseApp = getApp()
+  deleteApp(firebaseApp)
+  firebaseApp = initializeApp(firebaseConfig)
 }
  
 // Auth
