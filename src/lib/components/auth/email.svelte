@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { AuthError } from "firebase/auth";
-    import { authHandler } from "../../../stores/authStore";
+    import { authHandler, authUserStore } from "../../../stores/authStore";
+    import { goto } from "$app/navigation";
 
     let register = true;
     let email: string;
@@ -12,9 +13,13 @@
     async function submit() {
         console.log(register, email, password, confirmPassword);
         if (register) {
-            return SignUp();
+            await SignUp();
         } else {
-            return LogIn();
+            await LogIn();
+        }
+
+        if ($authUserStore.currentUser) {
+            goto("/rules");
         }
     }
 

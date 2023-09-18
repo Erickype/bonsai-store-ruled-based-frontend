@@ -8,10 +8,18 @@ import {
 import { writable } from 'svelte/store';
 import { firebaseAuth } from "$lib/firebase/firebase.client";
 
-const authUserStore = writable({
-    isLoading: true,
-    currentUser: null
-});
+interface User {
+    email: string
+}
+
+interface UserStore {
+    isLoading: boolean
+    currentUser?: User
+}
+
+const info: UserStore = { isLoading: true }
+
+const authUserStore = writable(info);
 
 export { authUserStore };
 
