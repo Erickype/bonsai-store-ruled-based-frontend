@@ -3,7 +3,7 @@
     import { authHandler, authUserStore } from "../../../stores/authStore";
     import { goto } from "$app/navigation";
 
-    let register = true;
+    let register = false;
     let email: string;
     let password: string;
     let confirmPassword: string;
@@ -11,7 +11,6 @@
     let error: string;
 
     async function submit() {
-        console.log(register, email, password, confirmPassword);
         if (register) {
             await SignUp();
         } else {

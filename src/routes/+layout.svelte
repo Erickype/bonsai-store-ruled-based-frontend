@@ -16,7 +16,8 @@
 
   import { onMount } from "svelte";
   import { firebaseAuth } from "$lib/firebase/firebase.client";
-  import { authUserStore } from "../stores/authStore";
+  import { authHandler, authUserStore } from "../stores/authStore";
+  import { goto } from "$app/navigation";
 
   onMount(() => {
     const unsubscribe = firebaseAuth.onAuthStateChanged((user) => {
@@ -57,12 +58,24 @@
       <TopNavigation />
 
       <svelte:fragment slot="trail">
-        <a
-          href="/auth"
-          class="btn bg-gradient-to-br variant-gradient-tertiary-primary"
-        >
-          Login
-        </a>
+        {#if $authUserStore.currentUser}
+          <button
+            class="btn bg-gradient-to-br variant-gradient-tertiary-primary"
+            on:click={() => {
+              authHandler.logOut();
+              goto("/");
+            }}
+          >
+            Log Out
+          </button>
+        {:else}
+          <a
+            href="/auth"
+            class="btn bg-gradient-to-br variant-gradient-tertiary-primary"
+          >
+            Login
+          </a>
+        {/if}
       </svelte:fragment>
     </AppBar>
   </svelte:fragment>
