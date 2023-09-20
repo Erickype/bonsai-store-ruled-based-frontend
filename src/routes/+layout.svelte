@@ -11,7 +11,6 @@
 
   import Navigation from "$lib/navigation/navigation.svelte";
   import TopNavigation from "$lib/navigation/topNav.svelte";
-  import { page } from "$app/stores";
   import Logo from "$lib/components/logo.svelte";
 
   import { onMount } from "svelte";
@@ -20,7 +19,7 @@
   import { goto } from "$app/navigation";
 
   onMount(() => {
-    const unsubscribe = firebaseAuth.onAuthStateChanged((user) => {
+    const _ = firebaseAuth.onAuthStateChanged((user) => {
       console.log(user);
       authUserStore.update((curr: any) => {
         return { ...curr, isLoading: false, currentUser: user };
@@ -66,7 +65,7 @@
               goto("/");
             }}
           >
-            Log Out
+            Logout
           </button>
         {:else}
           <a
@@ -81,14 +80,4 @@
   </svelte:fragment>
 
   <slot />
-
-  <svelte:fragment slot="pageFooter">
-    <div class="flex justify-center p-1">
-      <h6 class="h6">
-        {$page.url.pathname.toUpperCase()}
-      </h6>
-    </div>
-  </svelte:fragment>
 </AppShell>
-
-<slot />
