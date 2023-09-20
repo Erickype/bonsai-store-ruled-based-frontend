@@ -3,13 +3,7 @@
 
     import { page } from "$app/stores";
 
-    const menuItems: MenuItem[] = [
-        { name: "Homepage", href: "/" },
-        { name: "About", href: "/about" },
-        { name: "Features", href: "/features" },
-        { name: "Products", href: "/products" },
-        { name: "Contact", href: "/contact" },
-    ];
+    export let menuItems: MenuItem[];
 </script>
 
 <TabGroup

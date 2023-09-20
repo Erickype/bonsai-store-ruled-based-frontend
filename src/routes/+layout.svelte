@@ -30,12 +30,38 @@
   function drawerOpen(): void {
     drawerStore.open({});
   }
+
+  const menuHome: MenuItem[] = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/home/about" },
+    { name: "Features", href: "/home/features" },
+    { name: "Products", href: "/home/products" },
+    { name: "Contact", href: "/home/contact" },
+  ];
+
+  const menuUserAuth: MenuItem[] = [
+    { name: "Dashboard", href: "/user/dashboard" },
+    { name: "Products", href: "/user/products" },
+    { name: "Cart", href: "/user/cart" },
+    { name: "Account", href: "/user/account" },
+  ];
+
+  const menuAdminDashboard: MenuItem[] = [
+    { name: "Dashboard", href: "/admin" },
+    { name: "Rules", href: "/admin/rules" },
+    ];
 </script>
 
 <Drawer>
   <h2 class="p-4">Navigation</h2>
   <hr />
-  <Navigation />
+  {#if $authUserStore.currentUser}
+    <Navigation menuItems={menuUserAuth} />
+  {:else if !$authUserStore.currentUser}
+    <Navigation menuItems={menuHome} />
+  {:else}
+    <Navigation menuItems={menuAdminDashboard} />
+  {/if}
 </Drawer>
 <AppShell slotSidebarLeft="bg-surface-500/5 w-0 lg:w-64">
   <svelte:fragment slot="header">
@@ -54,7 +80,13 @@
         </div>
       </svelte:fragment>
 
-      <TopNavigation />
+      {#if $authUserStore.currentUser}
+        <TopNavigation menuItems={menuUserAuth} />
+      {:else if !$authUserStore.currentUser}
+        <TopNavigation menuItems={menuHome} />
+      {:else}
+        <TopNavigation menuItems={menuAdminDashboard} />
+      {/if}
 
       <svelte:fragment slot="trail">
         {#if $authUserStore.currentUser}

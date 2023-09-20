@@ -2,13 +2,7 @@
 	import { page } from "$app/stores";
 	import { drawerStore } from "@skeletonlabs/skeleton";
 
-	const menuItems: MenuItem[] = [
-		{ name: "Homepage", href: "/" },
-		{ name: "Rules", href: "/rules" },
-		{ name: "About", href: "/about" },
-		{ name: "Blog", href: "/blog" },
-		{ name: "Contact", href: "/contact" },
-	];
+	export let menuItems: MenuItem[];
 
 	$: classesActive = (href: string) => {
 		const path = $page.url.pathname;
