@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ params }) => {
 };
 
 export const actions: Actions = {
-    updateRule: async ({request}) => {
+    updateRule: async ({ request }) => {
         const formData = await request.formData()
         const processedRule = await processUpdateRule(formData)
         await Update(processedRule)

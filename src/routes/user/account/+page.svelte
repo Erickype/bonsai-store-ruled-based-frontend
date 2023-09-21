@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { authUserStore } from "../../../stores/authStore";
+    import { authUserStore } from "$lib/stores/authStore";
 
     let email: string;
     authUserStore.subscribe((curr) => {

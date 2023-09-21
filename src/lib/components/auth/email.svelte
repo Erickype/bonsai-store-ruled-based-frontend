@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { AuthError } from "firebase/auth";
-    import { authHandler, authUserStore } from "../../../stores/authStore";
+    import { authHandler, authUserStore } from "../../stores/authStore";
     import { goto } from "$app/navigation";
 
     let register = false;

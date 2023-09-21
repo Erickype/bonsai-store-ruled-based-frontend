@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Carrousel from "$lib/carrousel/carrousel.svelte";
+    import Carrousel from "$lib/components/carrousel/carrousel.svelte";
 
     import Hero1 from "$lib/assets/hero/hero1.jpg";
     import Hero2 from "$lib/assets/hero/hero2.jpg";

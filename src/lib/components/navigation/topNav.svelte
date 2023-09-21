@@ -2,6 +2,7 @@
     import { TabGroup, TabAnchor } from "@skeletonlabs/skeleton";
 
     import { page } from "$app/stores";
+    import type { MenuItem } from "./menu";
 
     export let menuItems: MenuItem[];
 </script>

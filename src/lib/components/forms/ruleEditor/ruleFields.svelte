@@ -2,8 +2,8 @@
     import type { PairExpression } from "$lib/server/services/rules/rule";
     import type { Then } from "$lib/server/services/rules/rule";
 
-    import When from "$lib/forms/ruleEditor/when.svelte";
-    import ThenC from "$lib/forms/ruleEditor/then.svelte";
+    import When from "$lib/components/forms/ruleEditor/when.svelte";
+    import ThenC from "$lib/components/forms/ruleEditor/then.svelte";
 
     export let when: { [key: string]: { [key: string]: PairExpression[] }[] };
     export let then: Then[];

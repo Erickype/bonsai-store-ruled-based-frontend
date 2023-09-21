@@ -9,13 +9,14 @@
 
   import { IconMenu } from "@tabler/icons-svelte";
 
-  import Navigation from "$lib/navigation/navigation.svelte";
-  import TopNavigation from "$lib/navigation/topNav.svelte";
-  import Logo from "$lib/components/logo.svelte";
+  import Navigation from "$lib/components/navigation/navigation.svelte";
+  import TopNavigation from "$lib/components/navigation/topNav.svelte";
+  import Logo from "$lib/components/logo/logo.svelte";
+  import type { MenuItem } from "$lib/components/navigation/menu.ts";
 
   import { onMount } from "svelte";
   import { firebaseAuth } from "$lib/firebase/firebase.client";
-  import { authHandler, authUserStore } from "../stores/authStore";
+  import { authHandler, authUserStore } from "../lib/stores/authStore";
   import { goto } from "$app/navigation";
 
   onMount(() => {
@@ -49,7 +50,7 @@
   const menuAdminDashboard: MenuItem[] = [
     { name: "Dashboard", href: "/admin" },
     { name: "Rules", href: "/admin/rules" },
-    ];
+  ];
 </script>
 
 <Drawer>

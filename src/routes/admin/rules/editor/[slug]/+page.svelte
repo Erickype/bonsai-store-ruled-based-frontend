@@ -2,8 +2,8 @@
     import { enhance } from "$app/forms";
     import type { PageServerData } from "./$types";
 
-    import SimpleFields from "$lib/forms/ruleEditor/simpleFields.svelte";
-    import RuleFields from "$lib/forms/ruleEditor/ruleFields.svelte";
+    import SimpleFields from "$lib/components/forms/ruleEditor/simpleFields.svelte";
+    import RuleFields from "$lib/components/forms/ruleEditor/ruleFields.svelte";
 
     export let data: PageServerData;
     let { rule } = data;
