@@ -18,7 +18,7 @@
         }
 
         if ($authUserStore.currentUser) {
-            goto("/rules");
+            goto("/user/dashboard");
         }
     }
 
