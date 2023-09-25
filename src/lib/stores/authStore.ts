@@ -3,10 +3,12 @@ import {
     sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signOut, updateEmail,
-    updatePassword
+    updatePassword,
+
 } from "firebase/auth";
 import { writable } from 'svelte/store';
-import { firebaseAuth } from "$lib/firebase/firebase.client";
+import { firebaseAuth, firebaseFunctions } from "$lib/firebase/firebase.client";
+import { httpsCallable, httpsCallableFromURL } from "firebase/functions";
 
 interface User {
     email: string
@@ -24,6 +26,10 @@ const authUserStore = writable(info);
 export { authUserStore };
 
 export const authHandler = {
+    makeAdmin: async (email: string) => {
+        const addAdminRole = httpsCallable(firebaseFunctions, "addAdminRole")
+        await addAdminRole({ email: email })
+    },
     login: async (email: string, password: string) => {
         await signInWithEmailAndPassword(firebaseAuth, email, password)
     },

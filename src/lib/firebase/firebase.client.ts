@@ -9,6 +9,7 @@ import {
 
 import { deleteApp, getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth} from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
   apiKey: PUBLIC_APIKEY,
@@ -21,7 +22,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 let firebaseApp;
- 
+
 if (!getApps().length) {
   firebaseApp = initializeApp(firebaseConfig);
 }else{
@@ -29,8 +30,11 @@ if (!getApps().length) {
   deleteApp(firebaseApp)
   firebaseApp = initializeApp(firebaseConfig)
 }
- 
+
 // Auth
 const firebaseAuth = getAuth(firebaseApp);
- 
-export { firebaseApp, firebaseAuth };
+
+// Firebase functions
+let firebaseFunctions = getFunctions(firebaseApp)
+
+export { firebaseApp, firebaseAuth,  firebaseFunctions};
