@@ -1,0 +1,3 @@
+interface CheckAdminResponse{
+    isAdmin: boolean 
+}
